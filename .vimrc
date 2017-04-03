@@ -46,11 +46,12 @@ Plugin 'majutsushi/tagbar'
 Plugin 'szw/vim-tags'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'bling/vim-airline'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
 Plugin 'lervag/vimtex'
 
-Plugin 'autoproto.vim'
+"Plugin 'autoproto.vim'
 "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -98,7 +99,12 @@ set pumheight=20
 
  " SuperTab completion fall-back 
 let g:SuperTabDefaultCompletionType='<c-x><c-u><c-p>'
-"let g:SuperTabDefaultCompletionType="context"
+"let g:SuperTabDefaultCompletionType='<c-x><c-o>'
+autocmd FileType *
+  \ if &omnifunc != '' |
+  \   call SuperTabChain(&omnifunc, "<c-x><c-o>") |
+  \   call SuperTabSetDefaultCompletionType("<c-x><c-u><c-p>") |
+  \ endif
 
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
@@ -128,6 +134,10 @@ nnoremap <silent><leader>v :set paste<cr>"+p :set paste!<cr>
 nnoremap <leader><leader>c :call ClangUpdateQuickFix()<cr> :copen<cr> 
 nnoremap <leader>q :q<cr>
 nmap <F8> :TagbarToggle<CR>
+
+nnoremap <tab> :tn<cr>
+nnoremap <S-tab> :tp<cr>
+
 let g:tagbar_autofocus=1
 let g:tagbar_autoclose=1
 let g:AutoPairsMapCR=0
