@@ -50,6 +50,8 @@ Plugin 'tpope/vim-repeat'
 "Plugin 'vim-airline/vim-airline'
 "Plugin 'vim-airline/vim-airline-themes'
 Plugin 'lervag/vimtex'
+Plugin 'chazy/cscope_maps'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 "Plugin 'autoproto.vim'
 "
@@ -79,6 +81,9 @@ filetype plugin indent on    " requiredt the following to have Vim load indentat
 "set autowrite		" Automatically save before commands like :next and :make
 "set hidden		" Hide buffers when they are abandoned
 "set mouse=a		" Enable mouse usage (all modes)
+
+colorscheme desert256
+set background=dark
 
 set conceallevel=3
 set concealcursor=vin
