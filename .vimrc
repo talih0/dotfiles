@@ -147,7 +147,7 @@ let g:tagbar_autofocus=1
 let g:tagbar_autoclose=1
 let g:AutoPairsMapCR=0
 
-nnoremap <leader><leader>f vawy<cr> :tag <C-r>""<cr>
+"nnoremap <leader><leader>f vawy<cr> :tag <C-r>""<cr>
 "nnoremap <silent>t f)a
 "
 nnoremap <leader>ev :split $MYVIMRC<cr>
