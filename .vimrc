@@ -137,7 +137,7 @@ vnoremap <silent><leader>c "+y<cr>
 vnoremap <silent><leader>x "+ygvd<cr>
 nnoremap <silent><leader>v :set paste<cr>"+p :set paste!<cr>
 nnoremap <leader><leader>c :call ClangUpdateQuickFix()<cr> :copen<cr> 
-nnoremap <leader>q :q<cr>
+"nnoremap <leader>q :q<cr>
 nmap <F8> :TagbarToggle<CR>
 
 nnoremap <tab> :tn<cr>
@@ -166,6 +166,12 @@ set hlsearch
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+set ro!
+nnoremap <leader>r :set relativenumber!<cr>
+nnoremap <leader>w :wnext<cr>
+nnoremap <leader>q :wprevios<cr>
+"nnoremap <leader>
 
 "let g:clang_library_path='/home/andriy/.vim/bundle/YouCompleteMe/third_party/ycmd/libclang.so.3.9'
 "let g:clang_library_path='/home/andriy/.vim/bundle/YouCompleteMe/third_party/ycmd/libclang.so'
