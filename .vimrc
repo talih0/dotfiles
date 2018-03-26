@@ -26,7 +26,7 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-surround'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/ycm-generator'
@@ -82,8 +82,12 @@ filetype plugin indent on    " requiredt the following to have Vim load indentat
 "set hidden		" Hide buffers when they are abandoned
 "set mouse=a		" Enable mouse usage (all modes)
 
-colorscheme desert256
-set background=dark
+"colorscheme desert256
+colorscheme molokai
+let g:rehash256 = 1
+hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
+
+"set background=dark
 
 set conceallevel=3
 set concealcursor=vin
@@ -116,8 +120,10 @@ autocmd FileType *
 let g:UltiSnipsExpandTrigger="<tab>"
 "let g:UltiSnipsExpandTrigger="<c-t>"
 let g:UltiSnipsListSnippets="<c-t>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+"let g:UltiSnipsJumpForwardTrigger="<c-j>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 vmap <c-t> :call UltiSnips#SaveLastVisualSelection()<CR>gvs
 
 let g:airline_theme='aurora'
@@ -177,7 +183,7 @@ nnoremap <leader>q :wprevios<cr>
 "let g:clang_library_path='/home/andriy/.vim/bundle/YouCompleteMe/third_party/ycmd/libclang.so'
 "let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang.so.1'
 "let g:clang_library_path='/usr/lib/llvm-3.8/lib/'
-let g:clang_library_path='/usr/lib/llvm-3.9/lib/'
+let g:clang_library_path='/usr/lib/llvm-3.9/lib/libclang-3.9.so.1'
 let g:clang_use_library=1
 
 "let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
