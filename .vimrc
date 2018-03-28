@@ -26,7 +26,7 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
-"Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-surround'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/ycm-generator'
@@ -158,6 +158,16 @@ let g:AutoPairsMapCR=0
 "
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+
+"tmux navigator mappings
+ let g:tmux_navigator_no_mappings = 1
+ nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+ nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+ nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+ "nnoremap <silent> <c-;> :TmuxNavigatePrevious<cr>
+ "nmap <c-;> :TmuxNavigatePrevious<cr>
 
 ":smap <C-j> <Plug>snipMateBack
 ":imap <C-j> <Plug>snipMateBack
