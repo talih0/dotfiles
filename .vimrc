@@ -29,9 +29,9 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-surround'
 "Plugin 'Valloric/YouCompleteMe'
-Plugin 'rdnetto/ycm-generator'
+"Plugin 'rdnetto/ycm-generator'
 Plugin 'rip-rip/clang_complete'
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 "Plugin 'joequery/stupid-easymotion'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'SirVer/ultisnips'
@@ -82,7 +82,7 @@ filetype plugin indent on    " requiredt the following to have Vim load indentat
 "set hidden		" Hide buffers when they are abandoned
 "set mouse=a		" Enable mouse usage (all modes)
 
-"colorscheme desert256
+colorscheme desert256
 colorscheme molokai
 let g:rehash256 = 1
 hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
