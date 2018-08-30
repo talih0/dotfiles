@@ -16,6 +16,10 @@ filetype off                  " required
 filetype plugin on
 "! set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+
+"lets reset autocmd commands
+"autocmd!
+
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -28,30 +32,20 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-surround'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'rdnetto/ycm-generator'
 Plugin 'rip-rip/clang_complete'
-"Plugin 'davidhalter/jedi-vim'
-"Plugin 'joequery/stupid-easymotion'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
-"Plugin 'MarcWeber/vim-addon-mw-utils'
-"Plugin 'tomtom/tlib_vim'
-"Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'itchyny/calendar.vim'
-"Plugin 'jiangmiao/auto-pairs'
 Plugin 'majutsushi/tagbar'
 Plugin 'szw/vim-tags'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
-"Plugin 'bling/vim-airline'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
 Plugin 'lervag/vimtex'
 Plugin 'chazy/cscope_maps'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'rhysd/vim-clang-format'
 
 "Plugin 'autoproto.vim'
 "
@@ -82,12 +76,13 @@ filetype plugin indent on    " requiredt the following to have Vim load indentat
 "set hidden		" Hide buffers when they are abandoned
 "set mouse=a		" Enable mouse usage (all modes)
 
-colorscheme desert256
-colorscheme molokai
+"colorscheme desert256
 let g:rehash256 = 1
-hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
+colorscheme molokai
+"hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
+set background=dark
+hi MatchParen cterm=underline,bold ctermbg=black ctermfg=green
 
-"set background=dark
 
 set conceallevel=3
 set concealcursor=vin
@@ -98,6 +93,9 @@ let g:clang_snippets_engine='clang_complete'
 "let g:clang_user_options = "-std=c++11 -stdlib=libc++"
 let g:clang_user_options = "-std=c++14"
 let g:clang_hl_errors=1
+
+
+
 
 " Complete options (disable preview scratch window, longest removed to aways
 " show menu)
@@ -118,16 +116,12 @@ autocmd FileType *
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsExpandTrigger="<c-t>"
 let g:UltiSnipsListSnippets="<c-t>"
-"let g:UltiSnipsJumpForwardTrigger="<c-j>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 vmap <c-t> :call UltiSnips#SaveLastVisualSelection()<CR>gvs
 
 let g:airline_theme='aurora'
-"let g:UltiSnipsSnippetDirectory=["~/.vim/bundle/vim-snippets/snippets"]
 "
 " " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -143,7 +137,6 @@ vnoremap <silent><leader>c "+y<cr>
 vnoremap <silent><leader>x "+ygvd<cr>
 nnoremap <silent><leader>v :set paste<cr>"+p :set paste!<cr>
 nnoremap <leader><leader>c :call ClangUpdateQuickFix()<cr> :copen<cr> 
-"nnoremap <leader>q :q<cr>
 nmap <F8> :TagbarToggle<CR>
 
 nnoremap <tab> :tn<cr>
@@ -153,12 +146,8 @@ let g:tagbar_autofocus=1
 let g:tagbar_autoclose=1
 let g:AutoPairsMapCR=0
 
-"nnoremap <leader><leader>f vawy<cr> :tag <C-r>""<cr>
-"nnoremap <silent>t f)a
-"
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
 
 "tmux navigator mappings
  let g:tmux_navigator_no_mappings = 1
@@ -179,30 +168,28 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 
+"autocmd FileType *.py set tabstop=4 | set shiftwidth=4
+"autocmd FileType python nnoremap <buffer> <F10> :! ./%<cr>
+"autocmd FileType *.py nnoremap <F10> :! ./%
+"autocmd FileType python nnoremap <leader><leader>r :!./%<cr>
+autocmd FileType python nnoremap <F10> :! ./%<cr>
+"nnoremap <F10> :!./%<cr>
+"set verbose=9 
+
 set ro!
+
+set relativenumber
 nnoremap <leader>r :set relativenumber!<cr>
 nnoremap <leader>w :wnext<cr>
 nnoremap <leader>q :wprevios<cr>
 "nnoremap <leader>
 
-"let g:clang_library_path='/home/andriy/.vim/bundle/YouCompleteMe/third_party/ycmd/libclang.so.3.9'
-"let g:clang_library_path='/home/andriy/.vim/bundle/YouCompleteMe/third_party/ycmd/libclang.so'
-"let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang.so.1'
-"let g:clang_library_path='/usr/lib/llvm-3.8/lib/'
 let g:clang_library_path='/usr/lib/llvm-3.9/lib/libclang-3.9.so.1'
 let g:clang_use_library=1
-
-"let g:clang_library_path='/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
-
-"nnoremap <silent> {Left-mapping} :TmuxNavigateLeft<cr>
-"nnoremap <silent> {Down-Mapping} :TmuxNavigateDown<cr>
-"nnoremap <silent> {Up-Mapping} :TmuxNavigateUp<cr>
-"nnoremap <silent> {Right-Mapping} :TmuxNavigateRight<cr>
-"nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
