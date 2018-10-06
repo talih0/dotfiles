@@ -144,7 +144,10 @@ vnoremap <silent><leader>x "+ygvd<cr>
 nnoremap <silent><leader>v :set paste<cr>"+p :set paste!<cr>
 nnoremap <leader><leader>c :call ClangUpdateQuickFix()<cr> :copen<cr> 
 "nnoremap <leader>q :q<cr>
-nmap <F8> :TagbarToggle<CR>
+nnoremap <F8> :TagbarToggle<CR>
+
+nnoremap <F5> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files && cscope -b -i cscope.files -f cscope.out<CR>
+      \:cs reset<CR>
 
 nnoremap <tab> :tn<cr>
 nnoremap <S-tab> :tp<cr>
@@ -179,9 +182,14 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
+
+autocmd FileType python :set tabstop=4
+autocmd FileType python :set shiftwidth=4
+autocmd FileType *.py :set tabstop=4
+autocmd FileType *.py :set shiftwidth=4
 
 set ro!
 nnoremap <leader>r :set relativenumber!<cr>
