@@ -190,7 +190,7 @@ nnoremap <leader>w :wnext<cr>
 nnoremap <leader>q :wprevios<cr>
 "nnoremap <leader>
 
-let g:clang_library_path='/usr/lib/llvm-3.9/lib/libclang-3.9.so.1'
+let g:clang_library_path='/usr/lib/llvm-6.0/lib/libclang-6.0.so.1'
 let g:clang_use_library=1
 
 if filereadable("/etc/vim/vimrc.local")
