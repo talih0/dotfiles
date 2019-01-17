@@ -127,6 +127,7 @@ let g:airline_theme='aurora'
 let g:UltiSnipsEditSplit="vertical"
 
 let g:tmux_navigator_no_mappings = 1
+let g:tmux_navigator_disable_when_zoomed = 1
 let mapleader = ","
 nnoremap <silent><leader>n :NERDTree<cr>
 nnoremap <silent><leader>t :NERDTreeToggle<cr>
@@ -140,7 +141,7 @@ nnoremap <leader><leader>c :call ClangUpdateQuickFix()<cr> :copen<cr>
 "nnoremap <leader>q :q<cr>
 nnoremap <F8> :TagbarToggle<CR>
 
-nnoremap <F5> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files && cscope -b -i cscope.files -f cscope.out<CR>
+nnoremap <F5> :!find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.cc' -o -iname '*.h' -o -iname '*.hpp' > cscope.files && cscope -b -i cscope.files -f cscope.out<CR>
       \:cs reset<CR>
 
 nnoremap <tab> :tn<cr>
