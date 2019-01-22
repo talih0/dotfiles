@@ -99,7 +99,10 @@ let g:clang_hl_errors=1
 
 " Complete options (disable preview scratch window, longest removed to aways
 " show menu)
-set completeopt=menu,menuone
+"set completeopt=menu,menuone
+set completeopt=longest,menuone
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Limit popup menu height
 set pumheight=20
@@ -191,7 +194,7 @@ nnoremap <leader>w :wnext<cr>
 nnoremap <leader>q :wprevios<cr>
 "nnoremap <leader>
 
-let g:clang_library_path='/usr/lib/llvm-6.0/lib/libclang-6.0.so.1'
+let g:clang_library_path='/usr/lib/libclang.so'
 let g:clang_use_library=1
 
 if filereadable("/etc/vim/vimrc.local")
