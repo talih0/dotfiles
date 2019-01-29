@@ -99,8 +99,8 @@ let g:clang_hl_errors=1
 
 " Complete options (disable preview scratch window, longest removed to aways
 " show menu)
-"set completeopt=menu,menuone
-set completeopt=longest,menuone
+set completeopt=menu,menuone
+"set completeopt=longest,menuone
 "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
@@ -141,6 +141,10 @@ vnoremap <silent><leader>c "+y<cr>
 vnoremap <silent><leader>x "+ygvd<cr>
 nnoremap <silent><leader>v :set paste<cr>"+p :set paste!<cr>
 nnoremap <leader><leader>c :call ClangUpdateQuickFix()<cr> :copen<cr> 
+
+"save as sudo 
+nnoremap ZZ :w !sudo tee %:p<cr> 
+
 "nnoremap <leader>q :q<cr>
 nnoremap <F8> :TagbarToggle<CR>
 
