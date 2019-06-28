@@ -26,7 +26,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vimwiki/vimwiki'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
@@ -37,15 +36,13 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
 Plugin 'honza/vim-snippets'
-Plugin 'itchyny/calendar.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'szw/vim-tags'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'lervag/vimtex'
 Plugin 'chazy/cscope_maps'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'tpope/vim-sensible'
+Plugin 'mileszs/ack.vim'
 
 "Plugin 'autoproto.vim'
 "
@@ -95,6 +92,11 @@ let g:clang_user_options = "-std=c++14"
 let g:clang_hl_errors=1
 
 
+set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
+set laststatus=2
+
+
+
 
 
 " Complete options (disable preview scratch window, longest removed to aways
@@ -134,6 +136,7 @@ let g:tmux_navigator_disable_when_zoomed = 1
 let mapleader = ","
 nnoremap <silent><leader>n :NERDTree<cr>
 nnoremap <silent><leader>t :NERDTreeToggle<cr>
+nnoremap <silent><leader><leader>t :NERDTreeVCS<cr>
 nnoremap <silent><leader>f :NERDTreeFocus<cr>
 nnoremap <silent><leader>s :w<cr>:TmuxNavigateRight<cr> 
 
@@ -190,7 +193,7 @@ autocmd FileType *.py :set tabstop=4
 autocmd FileType *.py :set shiftwidth=4
 autocmd FileType python nnoremap <F10> :! ./%<cr>
 
-set ro!
+"set ro!
 
 set relativenumber
 nnoremap <leader>r :set relativenumber!<cr>
@@ -200,6 +203,19 @@ nnoremap <leader>q :wprevios<cr>
 
 let g:clang_library_path='/usr/lib/libclang.so'
 let g:clang_use_library=1
+
+
+" Make sure Vim returns to the same line when you reopen a file.
+" Thanks, Amit
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
