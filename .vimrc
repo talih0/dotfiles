@@ -43,6 +43,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'tpope/vim-sensible'
 Plugin 'mileszs/ack.vim'
+Plugin 'davidhalter/jedi-vim'
 
 "Plugin 'autoproto.vim'
 "
@@ -90,6 +91,7 @@ let g:clang_snippets_engine='clang_complete'
 "let g:clang_user_options = "-std=c++11 -stdlib=libc++"
 let g:clang_user_options = "-std=c++14"
 let g:clang_hl_errors=1
+let g:clang_complete_macros=1
 
 
 set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
@@ -111,12 +113,13 @@ set pumheight=20
 
  " SuperTab completion fall-back 
 let g:SuperTabDefaultCompletionType='<c-x><c-u><c-p>'
-"let g:SuperTabDefaultCompletionType='<c-x><c-o>'
 autocmd FileType *
   \ if &omnifunc != '' |
   \   call SuperTabChain(&omnifunc, "<c-x><c-o>") |
   \   call SuperTabSetDefaultCompletionType("<c-x><c-u><c-p>") |
   \ endif
+
+let g:pymode_rope=0
 
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
@@ -183,8 +186,8 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 
 autocmd FileType python :set tabstop=4
