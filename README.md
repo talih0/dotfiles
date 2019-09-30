@@ -1,2 +1,2 @@
-# vim_ide
-Dotfiles for tmux, vim, gdb. 
+# dotfiles
+tmux, vim, gdb. 
